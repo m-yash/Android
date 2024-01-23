@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DemoResourcesNew</string>
+    <string name="uid_title">
+<b>User Id</b>
+</string>
+    <string name="uid_hint">Enter User Id</string>
+    <string name="pwd_title">
+<b>Password</b>
+</string>
+    <string name="pwd_hint">Enter Password</string>
+    <string name="loginbtn_title">Login</string>
+</resources>
