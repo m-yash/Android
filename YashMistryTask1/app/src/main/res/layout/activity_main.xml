@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/registerText"
+        android:text="@string/registerText"
+        style="@style/TextView"/>
+
+    <EditText
+        android:id="@+id/emailAddress"
+        android:hint="@string/emailAddress"
+        android:inputType="textEmailAddress"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/userName"
+        android:hint="@string/userName"
+        android:inputType="text"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/firstName"
+        android:hint="@string/firstName"
+        android:inputType="text"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/lastName"
+        android:hint="@string/lastName"
+        android:inputType="text"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:hint="@string/confirmPassword"
+        android:inputType="textPassword"
+        style="@style/EditText"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        style="@style/ImageView"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/registerButton"
+        style="@style/Button"
+        android:text="@string/registerButton" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/form"
+        android:layout_width="wrap_content"
+        android:layout_height="700dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="registerText,emailAddress,userName,firstName,lastName,password,confirmPassword,logo,registerButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
