@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:background="@color/white"
+
+    tools:context=".MainActivity" >
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        app:titleTextColor="@color/white"
+        app:title="@string/title"
+        style="@style/Toolbar"/>
+
+    <TextView
+        android:id="@+id/registerTxt"
+        style="@style/TextView.registerTxt" />
+
+    <EditText
+        android:id="@+id/name"
+        android:drawableStart="@drawable/name_img"
+        android:inputType="text"
+        android:hint="@string/name"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:drawableStart="@drawable/email_img"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:drawableStart="@drawable/password_img"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:drawableStart="@drawable/password_img"
+        android:inputType="textPassword"
+        android:hint="@string/confirmPassword"
+        style="@style/EditText"/>
+
+    <EditText
+        android:id="@+id/address"
+        android:drawableStart="@drawable/address_img"
+        android:inputType="textPostalAddress"
+        android:hint="@string/address"
+        style="@style/EditText"/>
+
+    <Button
+        android:id="@+id/registerBtn"
+        style="@style/Button.registerBtn"/>
+
+    <TextView
+        android:id="@+id/existingUser"
+        style="@style/TextView.existingUser"/>
+
+    <Button
+        android:id="@+id/loginBtn"
+        style="@style/Button.loginBtn"/>
+</LinearLayout>

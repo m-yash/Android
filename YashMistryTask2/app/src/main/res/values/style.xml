@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:theme">?attr/actionBarTheme</item>
+    </style>
+
+    <style name="TextView">
+    </style>
+    <style name="TextView.registerTxt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">55dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:text">@string/registerTxt</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TextView.existingUser">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/existingUser</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/pink</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">10</item>
+        <item name="android:layout_marginTop">9dp</item>
+        <item name="android:layout_marginBottom">9dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColorHint">@color/pink</item>
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:background">@drawable/border</item>
+    </style>
+
+    <style name="Button">
+    </style>
+    <style name="Button.registerBtn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:background">@drawable/border</item>
+        <item name="android:text">@string/registerBtn</item>
+    </style>
+    <style name="Button.loginBtn">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:background">@drawable/border</item>
+        <item name="android:layout_marginBottom">70dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/loginBtn</item>
+    </style>
+</resources>
