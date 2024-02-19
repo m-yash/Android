@@ -1,30 +1,3 @@
-//package com.example.yashmistryassignment1;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.app.DatePickerDialog;
-//import android.os.Bundle;
-//import android.text.InputType;
-//import android.view.View;
-//import android.widget.AdapterView;
-//import android.widget.ArrayAdapter;
-//import android.widget.DatePicker;
-//import android.widget.RadioGroup;
-//import android.widget.Toast;
-//
-//import com.google.android.material.snackbar.Snackbar;
-//
-//import java.util.Calendar;
-//
-//public class MainActivity extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//    }
-//}
-
 package com.example.yashmistryassignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.yashmistryassignment1.databinding.ActivityMainBinding;
 
-import com.example.yashmistryassignment1.models.HostingCost;
+import com.example.yashmistryassignment1.models.BeverageCost;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
@@ -49,9 +23,12 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     // Variable initialization
+
+    String beverageType;
+    String beverageSize;
     double beverageCost = 0;
 
-    double additionalCost = 0;
+
     double milkCost = 0;
     double sugarCost = 0;
 
@@ -60,23 +37,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String addedFlavouring;
     double addedFlavouringCost = 0;
 
+    String item ;
+    String selectRegion;
+    Object selectStore;
     double totalCost = 0;
-
-    double planCost = 0;
-//    double additionalCost = 0;
-    double dbCost = 0;
-    double stagingCost = 0;
-    String webSpace;
-//    double webSpaceCost = 0;
-    String province;
-//    double totalCost = 0;
 
     // object initialization
     ActivityMainBinding binding;
 
     DatePickerDialog datePicker;
 
-    HostingCost hCost;
+    BeverageCost bCost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,11 +84,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setListeners();
     }
 
-    // web space (spinner)
+    // displaying selected item
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        addedFlavouring =binding.spnAddedFlavour.getItemAtPosition(i).toString();
-        Toast.makeText (getApplicationContext(),addedFlavouring, Toast.LENGTH_LONG).show();
+        item  = binding.spnAddedFlavour.getItemAtPosition(i).toString();
+        if (item.equals("Lemon")){
+            addedFlavouringCost = 0.25;
+        } else if (item.equals("Ginger")){
+            addedFlavouringCost = 0.75;
+        } else if (item.equals("Pumpkin Spice")){
+            addedFlavouringCost = 0.50;
+        } else if (item.equals("Chocolate")){
+            addedFlavouringCost = 0.75;
+        } else {
+            addedFlavouringCost = 0;
+        }
+        Log.d("AddedFlavours", "Added Flavours: " + addedFlavouringCost);
+
+        selectStore  = binding.spnStore.getItemAtPosition(i);
+        if (selectStore != null){
+            selectStore = selectStore.toString();
+            Log.d("SelectedStore", "Selected Store: " + selectStore);
+        } else {
+            selectStore = "error";
+        }
+
     }
 
     @Override
@@ -146,13 +137,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Store spinner
         binding.spnStore.setOnItemSelectedListener(this);
 
-
-
-//        binding.rgHostingPlan.setOnCheckedChangeListener(this);
-
-
-
-
         binding.edtDate.setOnClickListener(this);
         binding.btnSubmit.setOnClickListener(this);
     }
@@ -160,8 +144,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // region (auto-complete)
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        addedFlavouring=parent.getItemAtPosition (position). toString();
-        Toast.makeText (getApplicationContext(), addedFlavouring, Toast. LENGTH_LONG) .show();
+        selectRegion =parent.getItemAtPosition (position). toString();
+        Toast.makeText (getApplicationContext(), selectRegion, Toast. LENGTH_LONG) .show();
+
+        if (selectRegion.equals("Waterloo")){
+            ArrayAdapter<CharSequence> adapterSelectStore = ArrayAdapter.createFromResource(this,R.array.waterloo_region_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            binding.spnStore.setAdapter(adapterSelectStore);
+        } else if (selectRegion.equals("London")) {
+            ArrayAdapter<CharSequence> adapterSelectStore = ArrayAdapter.createFromResource(this,R.array.london_region_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            binding.spnStore.setAdapter(adapterSelectStore);
+        } else if (selectRegion.equals("Milton")) {
+            ArrayAdapter<CharSequence> adapterSelectStore = ArrayAdapter.createFromResource(this,R.array.milton_region_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            binding.spnStore.setAdapter(adapterSelectStore);
+        } else {
+            ArrayAdapter<CharSequence> adapterSelectStore = ArrayAdapter.createFromResource(this,R.array.mississauga_region_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            binding.spnStore.setAdapter(adapterSelectStore);
+        }
+        Log.d("SelectedRegion", "Select Region: " + selectRegion);
     }
 
     @Override
@@ -194,40 +193,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     binding.edtDate.setText(day+"/"+(month+1)+"/"+year);
                 }
             }, yearofSales, monthofSales, dayofSales);
+            datePicker.getDatePicker().setMaxDate(cal.getTimeInMillis());
+
             datePicker.show();
         } else if (v.getId() == R.id.btnSubmit){
             // validating required fields
-//            if (formValidated()){
-//                // displaying result
-//                hCost = new HostingCost(binding.edtName.getText().toString(), province, webSpace, binding.edtDate.getText().toString(), dbCost, stagingCost, planCost);
-//                String result = hCost.getHostingCost();
-//
-//                // Snackbar
-//                Snackbar.make(binding.ltHost, result, Snackbar.LENGTH_INDEFINITE)
-//                        .setAction("Okay", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Toast.makeText(getApplicationContext(), "Thanks you for using this application", Toast.LENGTH_LONG).show();
-//                            }
-//                        }).show();
-//            }
+            if (formValidated()){
+                // displaying result
+                bCost = new BeverageCost(binding.edtName.getText().toString(), binding.edtEmail.getText().toString(), binding.edtPhoneNo.getText().toString(), selectRegion, binding.edtDate.getText().toString(), beverageType, binding.spnAddedFlavour.getSelectedItem().toString(), addedFlavouringCost, binding.spnStore.getSelectedItem().toString(), milkCost, sugarCost, beverageSizeCost, beverageSize);
 
-            // displaying result
-//            hCost = new HostingCost(binding.edtName.getText().toString(), province, webSpace, binding.edtDate.getText().toString(), dbCost, stagingCost, planCost);
+                String result = bCost.getBeverageCost();
 
-            hCost = new HostingCost(binding.edtName.getText().toString(), province, webSpace, binding.edtDate.getText().toString(), dbCost, stagingCost, planCost);
-            String result = hCost.getHostingCost();
-
-            // Snackbar
-            Snackbar.make(binding.ltHost, result, Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Okay", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Toast.makeText(getApplicationContext(), "Thanks you for using this application", Toast.LENGTH_LONG).show();
-                        }
-                    }).show();
-
+                // Snackbar
+                Snackbar.make(binding.ltHost, result, Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Okay", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "Thanks you for using this application", Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
+            }
         }
+        Log.d("Additionals", "Additionals: " + milkCost + " " + sugarCost);
     }
 
     // type of beverage (radio-button)
@@ -236,32 +223,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // for Coffee/Tea radio-button
         if (binding.rgTypeOfBeverage.getCheckedRadioButtonId() == R.id.rdCoffee) {
             beverageCost = 0;
+            beverageType = "Coffee";
 
             // binding adapter to added flavouring spinner
             ArrayAdapter<CharSequence> coffeeAdapterSpace = ArrayAdapter.createFromResource(this, R.array.coffee_flavouring_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             binding.spnAddedFlavour.setAdapter(coffeeAdapterSpace);
 
-        } else if (binding.rgTypeOfBeverage.getCheckedRadioButtonId() == R.id.rdTea) {
+        } else {
             beverageCost = 0;
+            beverageType = "Tea";
 
             // binding tea array to added flavour spinner
             ArrayAdapter<CharSequence> teaAdapterSpace = ArrayAdapter.createFromResource(this, R.array.tea_flavouring_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             binding.spnAddedFlavour.setAdapter(teaAdapterSpace);
         }
         // setting beverage size prices - small, medium, large
-        else if (binding.rgSizeOfBeverage.getCheckedRadioButtonId() == R.id.rdSmall) {
+        if (binding.rgSizeOfBeverage.getCheckedRadioButtonId() == R.id.rdSmall) {
+            beverageSize = "Small";
             if (binding.rgTypeOfBeverage.getCheckedRadioButtonId() == R.id.rdCoffee){
                 beverageSizeCost = 1.75;
+
             } else {
                 beverageSizeCost = 1.50;
             }
         } else if (binding.rgSizeOfBeverage.getCheckedRadioButtonId() == R.id.rdMedium) {
+            beverageSize = "Medium";
             if (binding.rgTypeOfBeverage.getCheckedRadioButtonId() == R.id.rdCoffee){
                 beverageSizeCost = 2.75;
             } else {
                 beverageSizeCost = 2.50;
             }
         } else if (binding.rgSizeOfBeverage.getCheckedRadioButtonId() == R.id.rdLarge) {
+            beverageSize = "Large";
             if (binding.rgTypeOfBeverage.getCheckedRadioButtonId() == R.id.rdCoffee){
                 beverageSizeCost = 3.75;
             } else {
@@ -270,37 +263,45 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else {
             beverageCost = 0;
         }
+        Log.d("BeverageCost", "Beverage Size Cost: " + beverageSizeCost);
     }
 
     // Form validation
-//    private  boolean formValidated(){
-//        if (binding.edtName.length() == 0){
-//            binding.edtName.setError("This field is required");
-//            return false;
-//        }
-//        if (!binding.rdStartUp.isChecked() && !binding.rdGrowBig.isChecked() && !binding.rdPremium.isChecked()){
-//            Toast.makeText(getApplicationContext(), "Select a hosting plan", Toast.LENGTH_LONG).show();
-//            binding.rdStartUp.setError("Select at least one");
-//            binding.rdGrowBig.setError("Select at least one");
-//            binding.rdPremium.setError("Select at least one");
-//            return false;
-//        }  else {
-//            // clearing error when at least one radio button is checked
-//            binding.rdStartUp.setError(null);
-//            binding.rdGrowBig.setError(null);
-//            binding.rdPremium.setError(null);
-//        }
-//        if (binding.acProvince.length() == 0){
-//            binding.acProvince.setError("This field is required");
-//            return false;
-//        }
-//        if (binding.edtDate.length() == 0){
-//            binding.edtDate.setError("This field is required");
-//            return false;
-//        } else {
-//            binding.edtDate.setError(null);
-//        }
-//
-//        return true;
-//    }
+    private  boolean formValidated(){
+        if (binding.edtName.length() == 0){
+            binding.edtName.setError("This field is required");
+            return false;
+        }
+        if (!binding.edtEmail.getText().toString().contains("@")){
+            binding.edtEmail.setError("Enter valid email");
+            return false;
+        }
+        if (binding.edtPhoneNo.length() < 10 ){
+            binding.edtPhoneNo.setError("Enter valid phone number");
+            return false;
+        }
+        if (!binding.rdSmall.isChecked() && !binding.rdMedium.isChecked() && !binding.rdLarge.isChecked()){
+            Toast.makeText(getApplicationContext(), "Select beverage size", Toast.LENGTH_LONG).show();
+            binding.rdSmall.setError("Select at least one");
+            binding.rdMedium.setError("Select at least one");
+            binding.rdLarge.setError("Select at least one");
+            return false;
+        }  else {
+            // clearing error when at least one radio button is checked
+            binding.rdSmall.setError(null);
+            binding.rdMedium.setError(null);
+            binding.rdLarge.setError(null);
+        }
+        if (binding.acSelectRegion.length() == 0){
+            binding.acSelectRegion.setError("This field is required");
+            return false;
+        }
+        if (binding.edtDate.length() == 0){
+            binding.edtDate.setError("This field is required");
+            return false;
+        } else {
+            binding.edtDate.setError(null);
+        }
+        return true;
+    }
 }
