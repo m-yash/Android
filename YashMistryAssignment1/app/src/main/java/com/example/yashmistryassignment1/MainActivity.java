@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         binding.rdMedium.setChecked(false);
         binding.rdLarge.setChecked(false);
 
-        // Array Adapter to fetch the items from an coffee and tea array
+        // Array Adapter to fetch the items from coffee array
         ArrayAdapter<CharSequence> coffeeAdapterSpace = ArrayAdapter.createFromResource(this, R.array.coffee_flavouring_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
 
         // binding adapter to added flavouring spinner
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setListeners();
     }
 
-    // displaying selected item
+    // displaying selected item and setting flavour cost
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         item  = binding.spnAddedFlavour.getItemAtPosition(i).toString();
@@ -193,6 +193,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     binding.edtDate.setText(day+"/"+(month+1)+"/"+year);
                 }
             }, yearofSales, monthofSales, dayofSales);
+
+            // disabling future dates
             datePicker.getDatePicker().setMaxDate(cal.getTimeInMillis());
 
             datePicker.show();
@@ -268,18 +270,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     // Form validation
     private  boolean formValidated(){
+        // name
         if (binding.edtName.length() == 0){
             binding.edtName.setError("This field is required");
             return false;
         }
+        // email
         if (!binding.edtEmail.getText().toString().contains("@")){
             binding.edtEmail.setError("Enter valid email");
             return false;
         }
+        // phone number
         if (binding.edtPhoneNo.length() < 10 ){
             binding.edtPhoneNo.setError("Enter valid phone number");
             return false;
         }
+        // radio button
         if (!binding.rdSmall.isChecked() && !binding.rdMedium.isChecked() && !binding.rdLarge.isChecked()){
             Toast.makeText(getApplicationContext(), "Select beverage size", Toast.LENGTH_LONG).show();
             binding.rdSmall.setError("Select at least one");
@@ -292,10 +298,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             binding.rdMedium.setError(null);
             binding.rdLarge.setError(null);
         }
+        // region
         if (binding.acSelectRegion.length() == 0){
             binding.acSelectRegion.setError("This field is required");
             return false;
         }
+        // date
         if (binding.edtDate.length() == 0){
             binding.edtDate.setError("This field is required");
             return false;

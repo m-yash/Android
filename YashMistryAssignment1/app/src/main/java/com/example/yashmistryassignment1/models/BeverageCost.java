@@ -1,5 +1,6 @@
 package com.example.yashmistryassignment1.models;
 
+// class
 public class BeverageCost {
     private String customerName;
     private String email;
@@ -10,19 +11,20 @@ public class BeverageCost {
     private double sugarCost;
     private String beverageSize;
     private Double addedflavouringCost;
-    private String region;
+    private String selectRegion;
     private String selectedStore;
 
     private String salesDate;
 
-    private double sizeCost;
+    private double beverageSizeCost;
 
 
-    public BeverageCost(String customerName, String email, String phoneNumber, String region, String salesDate, String beverageType, String beverageFlavour, Double addedflavouringCost, String selectedStore, double milkCost, double sugarCost, double sizeCost, String beverageSize) {
+    // constructor
+    public BeverageCost(String customerName, String email, String phoneNumber, String selectRegion, String salesDate, String beverageType, String beverageFlavour, Double addedflavouringCost, String selectedStore, double milkCost, double sugarCost, double beverageSizeCost, String beverageSize) {
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.region = region;
+        this.selectRegion = selectRegion;
         this.salesDate = salesDate;
         this.beverageType = beverageType;
         this.beverageFlavour = beverageFlavour;
@@ -30,10 +32,11 @@ public class BeverageCost {
         this.selectedStore = selectedStore;
         this.milkCost = milkCost;
         this.sugarCost = sugarCost;
-        this.sizeCost = sizeCost;
+        this.beverageSizeCost = beverageSizeCost;
         this.beverageSize = beverageSize;
     }
 
+    // method
     public String getBeverageCost() {
         double additionalCost = milkCost + sugarCost;
         double subtotal = 0;
@@ -42,12 +45,12 @@ public class BeverageCost {
 
 
         // Calculating total cost
-        subtotal = sizeCost + additionalCost + addedflavouringCost;
+        subtotal = beverageSizeCost + additionalCost + addedflavouringCost;
         tax = subtotal * 0.13;
         totalCost = subtotal + tax;
 
         // Result
 
-        return customerName + ", " + beverageType + ", " + region + ", " + selectedStore + ", "  + beverageSize+ ", " + beverageFlavour + ", " + salesDate + ", Total: $" + String.format("%.2f", totalCost);
+        return customerName + ", " + beverageType + ", " + selectRegion + ", " + selectedStore + ", "  + beverageSize+ ", " + beverageFlavour + ", " + salesDate + ", Total: $" + String.format("%.2f", totalCost);
     }
 }
