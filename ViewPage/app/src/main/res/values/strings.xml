@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HR Prima</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="cont">CONTINUE</string>
+
+    <string name="slide_1_title">Welcome to HR Prima</string>
+    <string name="slide_1_desc">Leverage the Power of the Ultimate HR Application!</string>
+    <string name="slide_2_title">Employee Set Up</string>
+    <string name="slide_2_desc">Leverage the Power of the Ultimate HR Application!</string>
+    <string name="slide_3_title">Payroll Management</string>
+    <string name="slide_3_desc">Leverage the Power of the Ultimate HR Application!</string>
+
+</resources>
+
+

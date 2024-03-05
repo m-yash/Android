@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DemoCardView</string>
+    <string name="page_title">Top Scientists</string>
+    <string name="darwin_title">Charles Darwin</string>
+    <string name="curie_title">Marie Curie</string>
+    <string name="einstein_title">Albert Einstein</string>
+    <string name="fleming_title">Alexander Fleming</string>
+    <string name="galilei_title">Galileo Galilei</string>
+    <string name="darwin_text">Darwin is credited with discovering the theory of natural selection. He also uncovered more facts about evolution and how old our planet Earth really is. </string>
+    <string name="curie_text">Curie was the first woman to receive the Nobel Prize for her work with radioactivity and radium. She pioneered the discovery and use of X-rays. </string>
+    <string name="einstein_text">One of the most famous scientists, Einstein is credited with creating the theory of relativity and for developing the world’s most famous mathematical equation. He also developed a law called the photoelectric effect, for which he received a Nobel Prize in physics.</string>
+    <string name="fleming_text">Fleming was a pharmacologist who helped create penicillin, a revolutionary breakthrough in the world of medicine. His discoveries were the catalyst for modern antibiotics. </string>
+    <string name="galilei_text">Known as the founder of modern physics and one of the most famous scientists ever, Galileo discovered many theories and laws in his lifetime, including the law of inertia. </string>
+</resources>
+
