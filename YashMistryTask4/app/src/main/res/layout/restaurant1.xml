@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/res1"
+        android:id="@+id/img1"
+        android:contentDescription="@string/app_name" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/res1_title"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark_color"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/res1_text"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+        android:layout_gravity="bottom|center_horizontal"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ratingSelected_hint"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:textColor="@color/dark_color"
+        android:layout_marginTop="5dp">
+    </com.google.android.material.textview.MaterialTextView>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/rtApp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/golden"
+            android:layout_marginTop="0dp"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtRatingSelected1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_color"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textSize="18sp">
+        </com.google.android.material.textview.MaterialTextView>
+    </LinearLayout>
+</LinearLayout>
+
+<!--
+Image links
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.yelp.ca%2Fbiz%2Fveggie-planet-mississauga-5&psig=AOvVaw3zeiC78Jvr7hKmkJ-98v8z&ust=1709860144449000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNj9uMb74IQDFQAAAAAdAAAAABAO
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fmybeverly.ca%2Fcategories%2Frestaurants%2F&psig=AOvVaw3zeiC78Jvr7hKmkJ-98v8z&ust=1709860144449000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNj9uMb74IQDFQAAAAAdAAAAABAE
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cheerspattaya.com%2Fbusiness%2F1297%2FHappy_Vikings_-_Jomtien&psig=AOvVaw1iQ7IRB393nj0folfs9ARw&ust=1709859971821000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJjmp_T64IQDFQAAAAAdAAAAABAn
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fmybeverly.ca%2Fcategories%2Frestaurants%2F&psig=AOvVaw1iQ7IRB393nj0folfs9ARw&ust=1709859971821000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJjmp_T64IQDFQAAAAAdAAAAABAg
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cheerspattaya.com%2Fbusiness%2F1210%2FWalking_Corner_Bar_%2526_Restaurant_-_Walking_Street_Pattaya&psig=AOvVaw1iQ7IRB393nj0folfs9ARw&ust=1709859971821000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJjmp_T64IQDFQAAAAAdAAAAABAO
+-->

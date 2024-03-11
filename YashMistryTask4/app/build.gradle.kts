@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cardview"
+    namespace = "com.example.yashmistrytask4"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.cardview"
+        applicationId = "com.example.yashmistrytask4"
         minSdk = 29
         targetSdk = 33
         versionCode = 1
@@ -29,7 +29,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
     buildFeatures{
         viewBinding = true
     }

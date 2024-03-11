@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TMTask4</string>
+    <string name="page_title">Top Restaurants</string>
+    <string name="res1_title">Savory Bites Cafe</string>
+    <string name="res2_title">Spice Fusion Kitchen</string>
+    <string name="res3_title">Oceanic Grill &amp; Seafood</string>
+    <string name="res4_title">The Garden Table</string>
+    <string name="res5_title">Galileo Galilei</string>
+    <string name="res1_text">Cozy spot serving homemade comfort food. </string>
+    <string name="res2_text">Innovative fusion cuisine with global flavors.</string>
+    <string name="res3_text">Fresh catches expertly prepared.</string>
+    <string name="res4_text">Farm-to-table dining in a serene setting.</string>
+    <string name="res5_text">Prime cuts grilled to perfection.</string>
+
+    <string name="ratingSelected_hint"><b><i>Please rate us:</i></b></string>
+</resources>
+
