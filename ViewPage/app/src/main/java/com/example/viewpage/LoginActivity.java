@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view.getId() == loginBinding.btnLogin.getId()){
             if(loginBinding.edtUserId.getText().toString().trim().equals("yash") && loginBinding.edtPasswd.getText().toString().trim().equals("yash")){
 //                intent2 = new Intent(this, TestHomeActivity.class);
+                intent2 = new Intent(this, HomeActivity.class);
 ////                intent2.putExtra("USER_ID", loginBinding.edtUserId.getText().toString().trim());
 //                User objUser = new User(loginBinding.edtUserId.getText().toString().trim(), loginBinding.edtEmailid.getText().toString().trim());
 //                intent2.putExtra("USER_DETAILS", objUser);
